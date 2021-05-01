@@ -4,24 +4,40 @@ import 'package:shopping_list_app/models/categories.dart';
 import 'package:shopping_list_app/widgets/item_text_field.dart';
 import 'package:shopping_list_app/widgets/select_category.dart';
 
-class AddItemScreen extends StatelessWidget {
+class AddItemScreen extends StatefulWidget {
+  @override
+  _AddItemScreenState createState() => _AddItemScreenState();
+}
+
+class _AddItemScreenState extends State<AddItemScreen> {
+  @override
+  void initState() {
+    for (int i = 0; i < Categories.categorySelection.length; i++)
+      Categories.categorySelection[i] = false;
+    super.initState();
+  }
+
   final _nameController = TextEditingController();
+
   final _priceController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   void _tryAddItem(BuildContext ctx) {
     FocusScope.of(ctx).unfocus();
     bool _isValid = _formKey.currentState.validate();
-    if (_isValid) _formKey.currentState.reset();
-    // print(_isValid);
-    // print(_categoryValidation(ctx));
     if (_categoryValidation(ctx) && _isValid) {
-      print('sve ok');
+      _formKey.currentState.reset();
+      setState(() {
+        for (int i = 0; i < Categories.categorySelection.length; i++) {
+          Categories.categorySelection[i] = false;
+        }
+      });
     }
   }
 
   bool _categoryValidation(BuildContext ctx) {
-    //print(Categories.categorySelection);
+    // print(Categories.categorySelection);
     if (!Categories.categorySelection.contains(true)) {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(

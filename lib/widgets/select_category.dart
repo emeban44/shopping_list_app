@@ -30,7 +30,7 @@ class _SelectCategoryState extends State<SelectCategory> {
     return Container(
         child: Column(
       children: [
-        CategoryRow(_selection, _checkCategory)
+        CategoryRow(Categories.categorySelection, _checkCategory)
         /*
         CategoryRow(0, _selection[0], _selection[1], _checkCategory),
         CategoryRow(1, _selection[2], _selection[3], _checkCategory),
