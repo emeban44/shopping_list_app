@@ -7,4 +7,13 @@ class Categories {
     'Technology',
     'Clothes',
   ];
+
+  static final List<bool> categorySelection = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
 }

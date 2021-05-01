@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list_app/models/categories.dart';
 
 import 'category_row.dart';
 
@@ -12,11 +13,14 @@ class _SelectCategoryState extends State<SelectCategory> {
   void _checkCategory(int i) {
     setState(() {
       _selection[i] = !_selection[i];
+      Categories.categorySelection[i] = !Categories.categorySelection[i];
       for (int y = 0; y < _selection.length; y++) {
         if (y == i)
           continue;
-        else
+        else {
           _selection[y] = false;
+          Categories.categorySelection[y] = false;
+        }
       }
     });
   }
