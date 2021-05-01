@@ -1,4 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_list_app/providers/shopping_provider.dart';
 import 'package:shopping_list_app/screens/home_screen.dart';
 
 void main() {
@@ -10,18 +13,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor:
-            Color.fromRGBO(26, 131, 106, 1), //Color.fromRGBO(23, 155, 23, 1),
-        canvasColor: Colors.blue.shade50, //Colors.green,
-        primarySwatch: MaterialColor(0xff4cd1b9, color),
-        fontFamily: 'Kanit',
-      ),
-      home: HomeScreen(),
-    );
+    final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+    return FutureBuilder(
+        future: _initialization,
+        builder: (ctx, appSnapshot) {
+          if (appSnapshot.connectionState == ConnectionState.waiting)
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          return ChangeNotifierProvider(
+            create: (ctx) => Shopping(),
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Demo',
+              theme: ThemeData(
+                primaryColor: Color.fromRGBO(
+                    26, 131, 106, 1), //Color.fromRGBO(23, 155, 23, 1),
+                canvasColor: Colors.blue.shade50, //Colors.green,
+                primarySwatch: MaterialColor(0xff4cd1b9, color),
+                fontFamily: 'Kanit',
+              ),
+              home: HomeScreen(),
+            ),
+          );
+        });
   }
 
   final Map<int, Color> color = {

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:shopping_list_app/providers/shopping_provider.dart';
 import 'package:shopping_list_app/screens/add_item_screen.dart';
 import 'package:shopping_list_app/screens/collected_items_screen.dart';
 import 'package:shopping_list_app/screens/list_items_screen.dart';
@@ -21,6 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _selectedPageIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    Provider.of<Shopping>(context, listen: false).fetchAndSetItems();
+    super.initState();
   }
 
   @override

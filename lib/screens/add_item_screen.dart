@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_list_app/models/categories.dart';
+import 'package:shopping_list_app/providers/shopping_provider.dart';
 
 import 'package:shopping_list_app/widgets/item_text_field.dart';
 import 'package:shopping_list_app/widgets/select_category.dart';
@@ -27,6 +30,10 @@ class _AddItemScreenState extends State<AddItemScreen> {
     FocusScope.of(ctx).unfocus();
     bool _isValid = _formKey.currentState.validate();
     if (_categoryValidation(ctx) && _isValid) {
+      int index =
+          Categories.categorySelection.indexWhere((element) => element == true);
+      Provider.of<Shopping>(ctx, listen: false).addItem(_nameController.text,
+          _priceController.text, Categories.categories[index]);
       _formKey.currentState.reset();
       setState(() {
         for (int i = 0; i < Categories.categorySelection.length; i++) {
