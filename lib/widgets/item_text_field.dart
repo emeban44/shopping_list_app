@@ -22,9 +22,12 @@ class ItemTextField extends StatelessWidget {
       child: TextFormField(
         // key: _formKey,
         controller: _controller,
+        autocorrect: false,
+        autofocus: false,
+        textCapitalization: TextCapitalization.sentences,
         keyboardType: (hint == 'Item Price...')
             ? TextInputType.numberWithOptions(decimal: true)
-            : TextInputType.name,
+            : TextInputType.text,
         style: TextStyle(fontSize: 21),
         decoration: InputDecoration(
           hintText: hint,

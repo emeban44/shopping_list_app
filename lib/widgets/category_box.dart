@@ -17,7 +17,8 @@ class _CategoryBoxState extends State<CategoryBox> {
   Widget build(BuildContext context) {
     return Container(
       //   color: _isSelected ? Colors.blue : Colors.transparent,
-      // width: 100,
+      // width: 140,
+      //  padding: const EdgeInsets.all(5.0),
       margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -27,18 +28,31 @@ class _CategoryBoxState extends State<CategoryBox> {
                 colors: [Colors.blue.shade100, Colors.green.shade100])
             : LinearGradient(colors: [Colors.transparent, Colors.transparent]),
       ),
-      child: TextButton.icon(
-        icon: widget.isChecked
-            ? Icon(Icons.radio_button_on_rounded)
-            : Icon(Icons.radio_button_off_rounded),
-        label: Text(
-          Categories.categories[widget.index],
-          style: TextStyle(fontSize: 22),
-        ),
-        onPressed: () => widget.selectCategory(widget.index),
-        style: TextButton.styleFrom(
-          primary: Color.fromRGBO(26, 131, 106, 1),
-        ),
+      child: Row(
+        children: [
+          TextButton.icon(
+            icon:
+                /*widget.isChecked
+                ? Icon(Icons.radio_button_on_rounded)
+                : Icon(Icons.radio_button_off_rounded), */
+                Image.asset(
+              Categories.categoryImages[widget.index],
+              width: 28,
+            ),
+            label: Text(
+              Categories.categories[widget.index],
+              style: TextStyle(fontSize: 23),
+            ),
+            onPressed: () => widget.selectCategory(widget.index),
+            style: TextButton.styleFrom(
+              primary: Color.fromRGBO(26, 131, 106, 1),
+            ),
+          ),
+          /*Image.asset(
+            Categories.categoryImages[widget.index],
+            width: 25,
+          ),*/
+        ],
       ),
     );
   }

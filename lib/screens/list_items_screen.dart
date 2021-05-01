@@ -10,57 +10,66 @@ class ListScreen extends StatelessWidget {
       final List<Item> itemsList = shopping.getAllItems;
       return ListView.builder(
         itemBuilder: (ctx, i) {
-          return Container(
-            height: 80,
-            decoration: BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(color: Colors.green, width: 0.5)),
-                gradient: LinearGradient(
-                    colors: [Colors.blue.shade100, Colors.green.shade100])),
-            child: Center(
-              child: ListTile(
-                leading: Container(
-                    height: 50,
-                    width: 50,
+          return Dismissible(
+            key: ValueKey(itemsList[i].time),
+            background: Container(
+              padding: const EdgeInsets.only(right: 10),
+              color: Colors.red,
+              child: Icon(
+                Icons.delete_sweep_outlined,
+                color: Colors.white70,
+                size: 40,
+              ),
+              alignment: Alignment.centerRight,
+            ),
+            direction: DismissDirection.endToStart,
+            confirmDismiss: (direction) {
+              return Provider.of<Shopping>(context, listen: false)
+                  .deleteItem(itemsList[i]);
+            },
+            child: Container(
+              height: 80,
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Colors.green, width: 0.5)),
+                  gradient: LinearGradient(
+                      colors: [Colors.blue.shade100, Colors.green.shade100])),
+              child: Center(
+                child: ListTile(
+                  leading: Container(
+                    height: 40,
+                    width: 40,
                     child: itemsList[i].category == 'Technology'
                         ? Image.asset('assets/images/technology.png')
                         : itemsList[i].category == 'Groceries'
                             ? Image.asset('assets/images/groceries.png')
                             : itemsList[i].category == 'Shoes'
-                                ? Image.asset('assets/images/shoes.png')
+                                ? Image.asset('assets/images/basic_shoes.png')
                                 : itemsList[i].category == 'Clothes'
                                     ? Image.asset('assets/images/clothes.png')
                                     : itemsList[i].category == 'Household'
                                         ? Image.asset(
                                             'assets/images/household.png')
                                         : Image.asset(
-                                            'assets/images/pricetag.png')),
-                /* Icon(
-                  itemsList[i].category == 'Technology'
-                      ? Icons.laptop_chromebook
-                      : itemsList[i].category == 'Other'
-                          ? Icons.category_rounded
-                          : itemsList[i].category == 'Groceries'
-                              ? Icons.local_grocery_store
-                              : Icons.home,
-                  size: 40,
-                ),*/
-                title: Text(
-                  itemsList[i].name,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.bold,
+                                            'assets/images/pricetag.png'),
                   ),
-                ),
-                subtitle: Text(
-                  itemsList[i].price.toStringAsFixed(2) + '\$',
-                  style: TextStyle(
-                      fontFamily: 'Lato', fontWeight: FontWeight.bold),
-                ),
-                trailing: Icon(
-                  Icons.check_box_outline_blank_rounded,
-                  size: 31,
+                  title: Text(
+                    itemsList[i].name,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    itemsList[i].price.toStringAsFixed(2) + '\$',
+                    style: TextStyle(
+                        fontFamily: 'Lato', fontWeight: FontWeight.bold),
+                  ),
+                  trailing: Icon(
+                    Icons.check_box_outline_blank_rounded,
+                    size: 31,
+                  ),
                 ),
               ),
             ),

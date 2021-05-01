@@ -16,4 +16,13 @@ class Categories {
     false,
     false
   ];
+
+  static final List<String> categoryImages = [
+    'assets/images/groceries.png',
+    'assets/images/pricetag.png',
+    'assets/images/household.png',
+    'assets/images/basic_shoes.png',
+    'assets/images/technology.png',
+    'assets/images/clothes.png',
+  ];
 }
