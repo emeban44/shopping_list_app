@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list_app/widgets/category_row.dart';
 import 'package:shopping_list_app/widgets/item_text_field.dart';
+import 'package:shopping_list_app/widgets/select_category.dart';
 
 class AddItemScreen extends StatelessWidget {
   @override
@@ -15,6 +17,12 @@ class AddItemScreen extends StatelessWidget {
         children: [
           ItemTextField('Item Name...'),
           ItemTextField('Item Price...'),
+          Divider(
+            color: Colors.green,
+            height: 25,
+            thickness: 0.8,
+          ),
+          SelectCategory(),
           Container(
             width: 200,
             height: 50,
