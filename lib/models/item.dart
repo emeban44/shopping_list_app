@@ -6,6 +6,7 @@ class Item {
   final double price;
   final String category;
   final String time;
+  bool isCollected = false;
 
   Item({
     @required this.name,

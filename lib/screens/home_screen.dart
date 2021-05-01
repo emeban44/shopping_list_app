@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     Provider.of<Shopping>(context, listen: false).fetchAndSetItems();
+    Provider.of<Shopping>(context, listen: false).fetchAndSetCollectedItems();
     super.initState();
   }
 
