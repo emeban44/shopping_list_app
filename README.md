@@ -1,7 +1,8 @@
 ## Goal of the application:
 
 The goal of this application is making everyday shopping easier with simple shopping item tracking features such as:
-Adding, Deleting and Collecting Items. The UI/UX must be intiutive and featherlight to provide an easy-to-use user feeling.
+Adding, Deleting and Collecting Shopping Items. 
+The UI/UX must be intiutive and featherlight to provide an easy-to-use user feeling.
 
 ## How to compile and run the application
 
