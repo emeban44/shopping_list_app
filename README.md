@@ -4,6 +4,8 @@ The goal of this application is making everyday shopping easier with simple shop
 Adding, Deleting and Collecting Shopping Items. 
 The UI/UX must be intiutive and featherlight to provide an easy-to-use user feeling.
 
+
+
 ## How to compile and run the application
 
 **Plugins and SDK needed to compile:**
@@ -35,6 +37,6 @@ The Application uses built-in and custom Flutter widgets for the frontend with F
 
 ## App Video Demonstration
 
-Full app demonstration video on both platforms can be seen in the following YouTube video: https://www.youtube.com/watch?v=QMbnOJjt61Y
+https://www.youtube.com/watch?v=QMbnOJjt61Y
 
 
