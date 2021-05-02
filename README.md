@@ -15,6 +15,7 @@ The UI/UX must be intiutive and featherlight to provide an easy-to-use user feel
 **IDE:**
 - Visual Studio Code
 
+**Steps for running the app:**
 1. Open project in VSCode
 2. Open Android or iOS emulator
 3. Click 'Run without debugging' in the top bar
