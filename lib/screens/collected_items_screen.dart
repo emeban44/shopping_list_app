@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list_app/providers/shopping_provider.dart';
+import 'package:shopping_list_app/widgets/deletion_alert_dialog.dart';
 
 class CollectedItemsScreen extends StatefulWidget {
   @override
@@ -24,37 +25,53 @@ class _CollectedItemsScreenState extends State<CollectedItemsScreen> {
             final collectedItems = shopping.getCollectedItems;
             return ListView.builder(
               itemBuilder: (ctx, i) {
-                return Container(
-                  height: 90,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(color: Colors.green, width: 0.25),
+                return InkWell(
+                  onLongPress: () {
+                    /*   Provider.of<Shopping>(context, listen: false)
+                        .removeCollectedItem(collectedItems[i]); */
+                    DeleteAlertDialog.showMyDialog(collectedItems[i], context);
+                  },
+                  child: Container(
+                    height: 90,
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(color: Colors.green, width: 0.25),
+                      ),
                     ),
-                  ),
-                  child: Center(
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.check_box,
-                        size: 40,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      title: Text(
-                        collectedItems[i].name,
-                        style: TextStyle(fontSize: 22, fontFamily: 'Kanit'),
-                      ),
-                      subtitle: Text(
-                        'Collected at: ' +
-                            DateTime.parse(collectedItems[i].time)
-                                .toString()
-                                .substring(0, 10),
-                      ),
-                      trailing: Text(
-                          collectedItems[i].price.toStringAsFixed(2) + '\$',
+                    child: Center(
+                      child: ListTile(
+                        key: ValueKey(collectedItems[i].time),
+                        leading:
+                            /*Icon(
+                          Icons.check_box,
+                          size: 40,
+                          color: Theme.of(context).primaryColor,
+                        ),*/
+                            Image.asset(
+                          ('assets/images/payment.png'),
+                          width: 44,
+                        ),
+                        title: Text(
+                          collectedItems[i].name,
                           style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                          )),
+                              fontSize: 22,
+                              fontFamily: 'Lato',
+                              fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          'Collected at: ' +
+                              DateTime.parse(collectedItems[i].time)
+                                  .toString()
+                                  .substring(0, 10),
+                        ),
+                        trailing: Text(
+                            collectedItems[i].price.toStringAsFixed(2) + '\$',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
                     ),
                   ),
                 );

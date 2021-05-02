@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
 import 'package:shopping_list_app/models/categories.dart';
 
 class CategoryBox extends StatefulWidget {
@@ -16,8 +17,6 @@ class _CategoryBoxState extends State<CategoryBox> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //   color: _isSelected ? Colors.blue : Colors.transparent,
-      // width: 140,
       //  padding: const EdgeInsets.all(5.0),
       margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
       decoration: BoxDecoration(
@@ -31,27 +30,19 @@ class _CategoryBoxState extends State<CategoryBox> {
       child: Row(
         children: [
           TextButton.icon(
-            icon:
-                /*widget.isChecked
-                ? Icon(Icons.radio_button_on_rounded)
-                : Icon(Icons.radio_button_off_rounded), */
-                Image.asset(
+            icon: Image.asset(
               Categories.categoryImages[widget.index],
               width: 28,
             ),
             label: Text(
               Categories.categories[widget.index],
-              style: TextStyle(fontSize: 23),
+              style: TextStyle(fontSize: Platform.isAndroid ? 20 : 23),
             ),
             onPressed: () => widget.selectCategory(widget.index),
             style: TextButton.styleFrom(
               primary: Color.fromRGBO(26, 131, 106, 1),
             ),
           ),
-          /*Image.asset(
-            Categories.categoryImages[widget.index],
-            width: 25,
-          ),*/
         ],
       ),
     );

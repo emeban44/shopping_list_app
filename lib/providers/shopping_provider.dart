@@ -91,6 +91,27 @@ class Shopping with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<bool> removeCollectedItem(Item item) async {
+    try {
+      // print(item.time);
+      final documents =
+          await FirebaseFirestore.instance.collection('collectedItems').get();
+      final docToDelete = documents.docs
+          .firstWhere((element) => element.data()['collectedAt'] == item.time);
+      _collectedItems.removeWhere((element) => element.time == item.time);
+      notifyListeners();
+      await FirebaseFirestore.instance
+          .collection('collectedItems')
+          .doc(docToDelete.id)
+          .delete();
+    } catch (error) {
+      print('greska');
+      print(error.message);
+      return false;
+    }
+    return true;
+  }
+
   Future<void> fetchAndSetCollectedItems() async {
     List<Item> tmp = [];
     final collectedItems = await FirebaseFirestore.instance
