@@ -20,7 +20,7 @@ The UI/UX must be intiutive and featherlight to provide an easy-to-use user feel
 
 ## How to run tests for the application
 
-Unfortunately, I never ran Unit Tests for Flutter apps(will learn about soon) but I have done them in Java, so I will just write hypothetical tests.
+Unfortunately, I never ran Unit Tests for Flutter apps(will learn to do soon) but I have done them in Java, so I will just write hypothetical tests.
 
 **Tests:**
 1. Add item test
