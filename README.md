@@ -1,17 +1,8 @@
-# My Shopping List App
+# shopping_list_app
 
-**Goal of the application:**
+A new Flutter project.
 
-The goal of this application is making everyday shopping easier with simple shopping item tracking features such as:
-Adding, Deleting and Collecting Items. The UI/UX must be intiutive and featherlight to provide an easy-to-use user feeling.
-
-## How to compile and run the application
-
-**Plugins and SDK needed to compile:**
-- Flutter and Dart SDKs
-- Firebase cloud_firestore and firebase_core plugins
-
-**IDE**
+## Getting Started
 
 This project is a starting point for a Flutter application.
 
