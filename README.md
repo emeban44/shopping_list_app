@@ -1,6 +1,6 @@
 # My Shopping List App
 
-**Goal of the application:**
+##Goal of the application:
 
 The goal of this application is making everyday shopping easier with simple shopping item tracking features such as:
 Adding, Deleting and Collecting Items. The UI/UX must be intiutive and featherlight to provide an easy-to-use user feeling.
@@ -10,6 +10,21 @@ Adding, Deleting and Collecting Items. The UI/UX must be intiutive and featherli
 **Plugins and SDK needed to compile:**
 - Flutter and Dart SDKs
 - Firebase cloud_firestore and firebase_core plugins
+- Android SDK
+- Xcode
+
+**IDE:**
+- Visual Studio Code
+
+1. Open project in VSCode
+2. Open Android or iOS emulator
+3. Click 'Run without debugging' in the top bar
+
+**App usage demonstration can be seen in this video:**
+
+https://www.youtube.com/watch?v=QMbnOJjt61Y
+
+
 
 **IDE**
 
