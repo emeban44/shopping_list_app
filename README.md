@@ -11,12 +11,13 @@ The UI/UX must be intiutive and featherlight to provide an easy-to-use user feel
 - Firebase cloud_firestore and firebase_core plugins
 - Android SDK
 - Xcode
+- Device emulator/simulator
 - Visual Studio Code
 
 **Steps for running the app:**
 1. Open project in VSCode
 2. Open Android or iOS emulator
-3. Click 'Run without debugging' in the top bar
+3. Click 'Run without debugging' in the VSCode top bar
 
 ## How to run tests for the application
 
