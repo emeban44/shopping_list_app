@@ -35,6 +35,6 @@ The Application uses built-in and custom Flutter widgets for the frontend with F
 
 ## App Video Demonstration
 
-https://www.youtube.com/watch?v=QMbnOJjt61Y
+App usage demonstration video: https://www.youtube.com/watch?v=QMbnOJjt61Y
 
 
