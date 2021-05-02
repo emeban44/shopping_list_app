@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list_app/models/item.dart';
@@ -19,19 +21,22 @@ class DeleteAlertDialog {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text(
-                  item.name + '\n',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: 'Kanit',
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  height: 50,
+                  child: Text(
+                    item.name + '\n',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontFamily: 'Kanit',
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Text(
                   'Are you sure you want to remove this from collected?',
                   style: TextStyle(
                     fontFamily: 'Lato',
-                    fontSize: 16,
+                    fontSize: Platform.isAndroid ? 16 : 18,
                     //  fontWeight: FontWeight.bold,
                   ),
                 ),

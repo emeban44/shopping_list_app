@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
             create: (ctx) => Shopping(),
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Flutter Demo',
+              title: 'Shopping list',
               theme: ThemeData(
                 primaryColor: Color.fromRGBO(
                     26, 131, 106, 1), //Color.fromRGBO(23, 155, 23, 1),

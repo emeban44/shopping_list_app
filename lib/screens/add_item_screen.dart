@@ -33,7 +33,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
       int index =
           Categories.categorySelection.indexWhere((element) => element == true);
       Provider.of<Shopping>(ctx, listen: false).addItem(_nameController.text,
-          _priceController.text, Categories.categories[index]);
+          _priceController.text, Categories.categories[index], ctx);
       _formKey.currentState.reset();
       setState(() {
         for (int i = 0; i < Categories.categorySelection.length; i++) {

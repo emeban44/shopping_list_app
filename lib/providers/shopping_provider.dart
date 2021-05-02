@@ -32,8 +32,8 @@ class Shopping with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> addItem(
-      String enteredName, String enteredPrice, String selectedCategory) async {
+  Future<void> addItem(String enteredName, String enteredPrice,
+      String selectedCategory, BuildContext ctx) async {
     String id = DateTime.now().toIso8601String();
     final Item item = Item(
       name: enteredName,
@@ -47,6 +47,15 @@ class Shopping with ChangeNotifier {
       'category': item.category,
       'addedAt': id,
     });
+    ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
+      content: Text(
+        'Item added!',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: 20),
+      ),
+      backgroundColor: Theme.of(ctx).primaryColor,
+      duration: Duration(seconds: 1),
+    ));
     _items.insert(0, item);
     notifyListeners();
   }
