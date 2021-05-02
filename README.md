@@ -11,8 +11,6 @@ The UI/UX must be intiutive and featherlight to provide an easy-to-use user feel
 - Firebase cloud_firestore and firebase_core plugins
 - Android SDK
 - Xcode
-
-**IDE:**
 - Visual Studio Code
 
 **Steps for running the app:**
@@ -20,21 +18,23 @@ The UI/UX must be intiutive and featherlight to provide an easy-to-use user feel
 2. Open Android or iOS emulator
 3. Click 'Run without debugging' in the top bar
 
-**App usage demonstration can be seen in this video:**
+## How to run tests for the application
 
-https://www.youtube.com/watch?v=QMbnOJjt61Y
+Unfortunately, I never ran Unit Tests for Flutter apps(will learn about soon) but I have done them in Java, so I will just write hypothetical tests.
+
+**Tests:**
+1. Add item test
+2. Delete item test
+3. Collect item test
+4. Sorting by date test
+5. New item form validation test
+
+## Application Architecture
+
+The Application uses built-in and custom Flutter widgets for the frontend with Flutter provider and firebase packages for the backend. Home page is split into 3 tabs that are all connected to a Shopping Provider who listens and provides data through the whole application. The app runs both on iOS and Android.
+
+## App Video Demonstration
+
+Full app demonstration video on both platforms can be seen in the following YouTube video: https://www.youtube.com/watch?v=QMbnOJjt61Y
 
 
-
-**IDE**
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
