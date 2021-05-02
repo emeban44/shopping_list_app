@@ -65,10 +65,13 @@ class ListScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    subtitle: Text(
-                      itemsList[i].price.toStringAsFixed(2) + '\$',
-                      style: TextStyle(
-                          fontFamily: 'Lato', fontWeight: FontWeight.bold),
+                    subtitle: Padding(
+                      padding: const EdgeInsets.only(left: 1.75),
+                      child: Text(
+                        itemsList[i].price.toStringAsFixed(2) + '\$',
+                        style: TextStyle(
+                            fontFamily: 'Lato', fontWeight: FontWeight.bold),
+                      ),
                     ),
                     trailing: CollectedCheckBox(itemsList[i]),
                   ),
