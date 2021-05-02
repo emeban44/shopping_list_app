@@ -1,5 +1,3 @@
-# My Shopping List App
-
 ## Goal of the application:
 
 The goal of this application is making everyday shopping easier with simple shopping item tracking features such as:
