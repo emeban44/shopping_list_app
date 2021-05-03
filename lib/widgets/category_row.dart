@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_list_app/widgets/category_box.dart';
+
+import '../widgets/category_box.dart';
 
 class CategoryRow extends StatelessWidget {
-  // final int index;
   final List<bool> checked;
   final Function(int i) selectCategory;
   CategoryRow(this.checked, this.selectCategory);
@@ -12,8 +12,6 @@ class CategoryRow extends StatelessWidget {
         child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
-      // mainAxisSize: MainAxisSize.min,
-      // mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Container(
           child: Column(
@@ -36,13 +34,6 @@ class CategoryRow extends StatelessWidget {
             ],
           ),
         ),
-        /*
-        if (index == 0) CategoryBox(0, isFirstSelected, selectCategory),
-        if (index == 0) CategoryBox(1, isSecondSelected, selectCategory),
-        if (index == 1) CategoryBox(2, isFirstSelected, selectCategory),
-        if (index == 1) CategoryBox(3, isSecondSelected, selectCategory),
-        if (index == 2) CategoryBox(4, isFirstSelected, selectCategory),
-        if (index == 2) CategoryBox(5, isSecondSelected, selectCategory),*/
       ],
     ));
   }

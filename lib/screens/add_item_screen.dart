@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_list_app/models/categories.dart';
-import 'package:shopping_list_app/providers/shopping_provider.dart';
 
-import 'package:shopping_list_app/widgets/item_text_field.dart';
-import 'package:shopping_list_app/widgets/select_category.dart';
+import '../models/categories.dart';
+import '../providers/shopping_provider.dart';
+import '../widgets/item_text_field.dart';
+import '../widgets/select_category.dart';
 
 class AddItemScreen extends StatefulWidget {
   @override
@@ -30,10 +29,15 @@ class _AddItemScreenState extends State<AddItemScreen> {
     FocusScope.of(ctx).unfocus();
     bool _isValid = _formKey.currentState.validate();
     if (_categoryValidation(ctx) && _isValid) {
-      int index =
-          Categories.categorySelection.indexWhere((element) => element == true);
-      Provider.of<Shopping>(ctx, listen: false).addItem(_nameController.text,
-          _priceController.text, Categories.categories[index], ctx);
+      int index = Categories.categorySelection.indexWhere(
+        (element) => element == true,
+      );
+      Provider.of<Shopping>(ctx, listen: false).addItem(
+        _nameController.text,
+        _priceController.text,
+        Categories.categories[index],
+        ctx,
+      );
       _formKey.currentState.reset();
       setState(() {
         for (int i = 0; i < Categories.categorySelection.length; i++) {
@@ -44,7 +48,6 @@ class _AddItemScreenState extends State<AddItemScreen> {
   }
 
   bool _categoryValidation(BuildContext ctx) {
-    // print(Categories.categorySelection);
     if (!Categories.categorySelection.contains(true)) {
       ScaffoldMessenger.of(ctx).showSnackBar(
         SnackBar(
@@ -84,8 +87,6 @@ class _AddItemScreenState extends State<AddItemScreen> {
                 ),
               ),
             ),
-            /*ItemTextField('Item Name...', _nameController),
-            ItemTextField('Item Price...', _priceController), */
             Divider(
               color: Colors.green,
               height: 25,
@@ -99,7 +100,6 @@ class _AddItemScreenState extends State<AddItemScreen> {
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontSize: 15,
-                    //  fontWeight: FontWeight.bold,
                   ),
                 )),
             Divider(

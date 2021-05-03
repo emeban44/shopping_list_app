@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_list_app/models/item.dart';
-import 'package:shopping_list_app/providers/shopping_provider.dart';
+
+import '../models/item.dart';
+import '../providers/shopping_provider.dart';
 
 class CollectedCheckBox extends StatefulWidget {
   final Item item;

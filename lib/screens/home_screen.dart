@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:shopping_list_app/providers/shopping_provider.dart';
-import 'package:shopping_list_app/screens/add_item_screen.dart';
-import 'package:shopping_list_app/screens/collected_items_screen.dart';
-import 'package:shopping_list_app/screens/list_items_screen.dart';
+import '../providers/shopping_provider.dart';
+import '../screens/add_item_screen.dart';
+import '../screens/collected_items_screen.dart';
+import '../screens/list_items_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -61,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           child: BottomNavigationBar(
-            //  backgroundColor: Colors.blue.shade100,
             currentIndex: _selectedPageIndex,
             onTap: _selectPage,
             backgroundColor: Colors.green.shade50,

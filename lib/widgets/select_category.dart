@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_list_app/models/categories.dart';
 
+import '../models/categories.dart';
 import 'category_row.dart';
 
 class SelectCategory extends StatefulWidget {
@@ -29,13 +29,7 @@ class _SelectCategoryState extends State<SelectCategory> {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-      children: [
-        CategoryRow(Categories.categorySelection, _checkCategory)
-        /*
-        CategoryRow(0, _selection[0], _selection[1], _checkCategory),
-        CategoryRow(1, _selection[2], _selection[3], _checkCategory),
-        CategoryRow(2, _selection[4], _selection[5], _checkCategory),*/
-      ],
+      children: [CategoryRow(Categories.categorySelection, _checkCategory)],
     ));
   }
 }

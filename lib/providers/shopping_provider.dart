@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_list_app/models/item.dart';
+
+import '../models/item.dart';
 
 class Shopping with ChangeNotifier {
   static List<Item> _items = [];
@@ -102,7 +103,6 @@ class Shopping with ChangeNotifier {
 
   Future<bool> removeCollectedItem(Item item) async {
     try {
-      // print(item.time);
       final documents =
           await FirebaseFirestore.instance.collection('collectedItems').get();
       final docToDelete = documents.docs

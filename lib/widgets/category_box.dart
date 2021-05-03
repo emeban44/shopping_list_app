@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
-import 'package:shopping_list_app/models/categories.dart';
+
+import '../models/categories.dart';
 
 class CategoryBox extends StatefulWidget {
   final int index;
@@ -12,12 +13,9 @@ class CategoryBox extends StatefulWidget {
 }
 
 class _CategoryBoxState extends State<CategoryBox> {
-  // bool _isSelected = isChecked;
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      //  padding: const EdgeInsets.all(5.0),
       margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),

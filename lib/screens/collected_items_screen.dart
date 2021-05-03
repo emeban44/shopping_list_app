@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_list_app/providers/shopping_provider.dart';
-import 'package:shopping_list_app/widgets/deletion_alert_dialog.dart';
+
+import '../providers/shopping_provider.dart';
+import '../widgets/deletion_alert_dialog.dart';
 
 class CollectedItemsScreen extends StatefulWidget {
   @override
@@ -27,8 +28,6 @@ class _CollectedItemsScreenState extends State<CollectedItemsScreen> {
               itemBuilder: (ctx, i) {
                 return InkWell(
                   onLongPress: () {
-                    /*   Provider.of<Shopping>(context, listen: false)
-                        .removeCollectedItem(collectedItems[i]); */
                     DeleteAlertDialog.showMyDialog(collectedItems[i], context);
                   },
                   child: Container(
@@ -41,13 +40,7 @@ class _CollectedItemsScreenState extends State<CollectedItemsScreen> {
                     child: Center(
                       child: ListTile(
                         key: ValueKey(collectedItems[i].time),
-                        leading:
-                            /*Icon(
-                          Icons.check_box,
-                          size: 40,
-                          color: Theme.of(context).primaryColor,
-                        ),*/
-                            Image.asset(
+                        leading: Image.asset(
                           ('assets/images/payment.png'),
                           width: 44,
                         ),
